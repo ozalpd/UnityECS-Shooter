@@ -25,6 +25,10 @@ public class ECSManager : MonoBehaviour
             var instance = manager.Instantiate(virus);
             float3 position = GetRandomFloat3(-50, 50);
             manager.SetComponentData(instance, new Translation() { Value = position });
+            manager.SetComponentData(instance, new FloatData()
+            {
+                speed = UnityEngine.Random.Range(1, 10) / 10f
+            });
         }
     }
 
