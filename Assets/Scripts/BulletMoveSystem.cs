@@ -10,16 +10,16 @@ public class BulletMoveSystem : JobComponentSystem
     {
         float dt = Time.DeltaTime;
         var jobHandle = Entities.WithName("BulletMoveSystem")
-                                        //this is a parallel processing iteration
-                                        .ForEach((ref PhysicsVelocity physics,
-                                                  ref Translation position,
-                                                  ref Rotation rotation,
-                                                  ref BulletData bulletData) =>
-                                        {
-                                            physics.Angular = float3.zero;
-                                            physics.Linear += dt * bulletData.speed * math.forward(rotation.Value);
-                                        })
-                                        .Schedule(inputDeps);
+                               //this is a parallel processing iteration
+                                .ForEach((ref PhysicsVelocity physics,
+                                          ref Translation position,
+                                          ref Rotation rotation,
+                                          ref BulletData bulletData) =>
+                                {
+                                    physics.Angular = float3.zero;
+                                    physics.Linear += dt * bulletData.speed * math.forward(rotation.Value);
+                                })
+                                .Schedule(inputDeps);
         jobHandle.Complete();
         return jobHandle;
     }
