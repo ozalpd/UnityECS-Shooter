@@ -14,10 +14,13 @@ public class ECSManager : MonoBehaviour
 
     public GameObject redBloodCellPrefab;
     public int numBloodCell = 500;
-
+    
     public GameObject bulletPrefab;
     public int numBullets = 10;
     private Entity bulletEntity;
+
+    public GameObject splatPrefab;
+    public static Entity splatEntity;
 
     BlobAssetStore store;
 
@@ -35,6 +38,7 @@ public class ECSManager : MonoBehaviour
         Instaniate(redCell, numBloodCell);
 
         bulletEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy(bulletPrefab, settings);
+        splatEntity = GameObjectConversionUtility.ConvertGameObjectHierarchy(splatPrefab, settings);
     }
 
     private void Instaniate(Entity entity, int numOfInstance)

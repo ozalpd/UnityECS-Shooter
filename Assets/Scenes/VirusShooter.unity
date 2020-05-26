@@ -444,6 +444,8 @@ MonoBehaviour:
   redBloodCellPrefab: {fileID: 7308820577641734850, guid: 3961b3a9ff066de43820ccff9509a054,
     type: 3}
   numBloodCell: 500
+  splatPrefab: {fileID: 766981905031664627, guid: 7a2df02c5185bde4bb2d0c5c95279f0c,
+    type: 3}
   bulletPrefab: {fileID: 6190341470893901046, guid: 7a85e7d1a21cb524c89ab1814ab2e5fe,
     type: 3}
   numBullets: 10
