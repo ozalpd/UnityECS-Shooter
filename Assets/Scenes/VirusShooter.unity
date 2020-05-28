@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 963194225}
-  virusPrefab: {fileID: 2602873358154230138, guid: 1851067f003c4e94e8d37c71116685f9,
+  virusPrefab: {fileID: 5532790231294613033, guid: dacbe4d104c4e7543b623a617b99941e,
     type: 3}
   numVirus: 500
   redBloodCellPrefab: {fileID: 7308820577641734850, guid: 3961b3a9ff066de43820ccff9509a054,
