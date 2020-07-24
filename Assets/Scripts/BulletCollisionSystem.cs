@@ -41,13 +41,13 @@ public class BulletCollisionSystem : JobComponentSystem
 
         public void Execute(CollisionEvent collisionEvent)
         {
-            Entity a = collisionEvent.Entities.EntityA;
-            Entity b = collisionEvent.Entities.EntityB;
-            Entity bullet = _bulletGroup.Exists(a) ? a : _bulletGroup.Exists(b) ? b : Entity.Null;
+            Entity a = collisionEvent.EntityA;
+            Entity b = collisionEvent.EntityB;
+            Entity bullet = _bulletGroup.HasComponent(a) ? a : _bulletGroup.HasComponent(b) ? b : Entity.Null;
             if (bullet.Equals(Entity.Null)) //none of the colliders is a bullet
                 return;
 
-            Entity aliveTarget = _aliveGroup.Exists(a) ? a : _aliveGroup.Exists(b) ? b : Entity.Null;
+            Entity aliveTarget = _aliveGroup.HasComponent(a) ? a : _aliveGroup.HasComponent(b) ? b : Entity.Null;
             if (aliveTarget.Equals(Entity.Null)) //must hit something other than an alive target
                 return;
 
