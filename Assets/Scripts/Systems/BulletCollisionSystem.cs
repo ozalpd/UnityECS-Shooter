@@ -3,7 +3,7 @@ using Unity.Jobs;
 using Unity.Physics;
 using Unity.Physics.Systems;
 
-[UpdateAfter(typeof(EndFramePhysicsSystem))]
+//[UpdateAfter(typeof(EndFramePhysicsSystem))]
 public class BulletCollisionSystem : JobComponentSystem
 {
     BuildPhysicsWorld buildPhysicsWorld;

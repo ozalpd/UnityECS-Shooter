@@ -9,15 +9,12 @@ public class BulletMoveSystem : JobComponentSystem
     protected override JobHandle OnUpdate(JobHandle inputDeps)
     {
         float dt = Time.DeltaTime;
-        var jobHandle = Entities.WithName("BulletMoveSystem")
-                               //this is a parallel processing iteration
-                                .ForEach((ref PhysicsVelocity physics,
-                                          ref Translation position,
-                                          ref Rotation rotation,
-                                          ref BulletData bulletData) =>
+        var jobHandle = Entities.ForEach((ref PhysicsVelocity velocity,
+                                          in Rotation rotation,
+                                          in BulletData bulletData) =>
                                 {
-                                    physics.Angular = float3.zero;
-                                    physics.Linear += dt * bulletData.speed * math.forward(rotation.Value);
+                                    velocity.Angular = float3.zero;
+                                    velocity.Linear += dt * bulletData.speed * math.forward(rotation.Value);
                                 })
                                 .Schedule(inputDeps);
         jobHandle.Complete();
