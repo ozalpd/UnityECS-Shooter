@@ -22,7 +22,7 @@ public class TimedDestroySystem : JobComponentSystem
                 .Run();
         
         
-        var manager = ECSManager.manager;
+        var manager = GameManager.manager;
         Entities.WithoutBurst()
                 .WithStructuralChanges()
                 .ForEach((Entity entity, ref Translation pos, ref LifeData lifeData) =>
@@ -31,7 +31,7 @@ public class TimedDestroySystem : JobComponentSystem
                     {
                         for (int i = 0; i < 100; i++)
                         {
-                            var splat = manager.Instantiate(ECSManager.splatEntity);
+                            var splat = manager.Instantiate(GameManager.splatEntity);
                             float3 offset = (float3)UnityEngine.Random.insideUnitSphere * 2.0f;
                             float3 direct = new float3(UnityEngine.Random.Range(-1, 1),
                                                        UnityEngine.Random.Range(-1, 1),

@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 
 
-public class ECSManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public static EntityManager manager;
     public GameObject player;
